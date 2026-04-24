@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gourav Gupta | Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* FLOATING BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(56,189,248,0.1), transparent);
+  animation: moveBg 15s linear infinite;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-10%, -10%); }
+  100% { transform: translate(0,0); }
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: rgba(2,6,23,0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+nav h2 { color: #38bdf8; }
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+header h1 {
+  font-size: 48px;
+}
+
+header span { color: #38bdf8; }
+
+/* TYPING TEXT */
+#typing {
+  margin-top: 10px;
+  font-size: 18px;
+  border-right: 2px solid #38bdf8;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+/* CARD */
+.card {
+  background: rgba(30,41,59,0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 20px rgba(56,189,248,0.5);
+}
+
+/* SKILLS */
+.skills span {
+  display: inline-block;
+  background: #38bdf8;
+  color: black;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  transform: scale(1.2);
+}
+
+/* BUTTON */
+a.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #38bdf8;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+a.button:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* CONTACT */
+.contact p {
+  margin: 8px 0;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: #020617;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Gourav</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Hello, I'm <span>Gourav Gupta</span></h1>
+  <p id="typing"></p>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>I am a BTech student passionate about coding, web development, and building real-world solutions.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Mess Control System</h3>
+    <p>A startup project focused on improving mess management digitally.</p>
+    <a href="https://vit-bhopal---mess-control.web.app" target="_blank" class="button">View Project</a>
+  </div>
+
+  <div class="card">
+    <h3>Calculator App</h3>
+    <p>Built using HTML, CSS, JavaScript.</p>
+  </div>
+
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>C++</span>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p><b>📧 Personal Email:</b> gouravgupta91385@gmail.com</p>
+    <p><b>🎓 College Email:</b> gourav.25bsa10080@vitbhopal.ac.in</p>
+    <p><b>📱 Mobile:</b> 91385*****</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Gourav Gupta</p>
+</footer>
+
+<script>
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* TYPING EFFECT */
+const text = "BTech Student | Web Developer | Startup Builder";
+let i = 0;
+
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 50);
+  }
+}
+
+type();
+</script>
+
+</body>
+</html>
